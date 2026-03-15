@@ -10,6 +10,7 @@ import Cycles     from './pages/Cycles'
 import Executions from './pages/Executions'
 import Reports    from './pages/Reports'
 import Callback   from './pages/Callback'
+import Jira from './pages/Jira'
 
 function Guard({ children }) {
   const { user } = useAuth()
@@ -40,6 +41,7 @@ export default function App() {
           <Route path="/executions" element={<Guard><Executions /></Guard>} />
           <Route path="/reports"    element={<Guard><Reports /></Guard>} />
           <Route path="*"           element={<Navigate to="/" replace />} />
+          <Route path="/jira" element={<Guard><Jira /></Guard>} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

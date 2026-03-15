@@ -11,6 +11,7 @@ const NAV = [
   { to:'/cycles',     icon:'↻', label:'Ciclos'         },
   { to:'/executions', icon:'▶', label:'Execuções'      },
   { to:'/reports',    icon:'◑', label:'Relatórios'     },
+  { to:'/jira',       icon:'🔗', label:'Jira'           },
 ]
 
 export default function Sidebar() {
