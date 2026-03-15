@@ -11,6 +11,7 @@ import Executions from './pages/Executions'
 import Reports    from './pages/Reports'
 import Callback   from './pages/Callback'
 import Jira from './pages/Jira'
+import Bugs from './pages/Bugs'
 
 function Guard({ children }) {
   const { user } = useAuth()
@@ -41,6 +42,7 @@ export default function App() {
           <Route path="/executions" element={<Guard><Executions /></Guard>} />
           <Route path="/reports"    element={<Guard><Reports /></Guard>} />
           <Route path="*"           element={<Navigate to="/" replace />} />
+          <Route path="/bugs" element={<Guard><Bugs /></Guard>} />
           <Route path="/jira" element={<Guard><Jira /></Guard>} />
         </Routes>
       </BrowserRouter>

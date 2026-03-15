@@ -101,7 +101,7 @@ export default function Executions() {
             </select></div>
           <div className="form-group"><label className="form-label">Caso de Teste *</label>
             <select className="input" value={form.test_case_id} onChange={e=>setForm({...form,test_case_id:e.target.value})}>
-              <option value="">Selecione um caso…</option>{cases.map(c=><option key={c.id} value={c.id||c.test_case_id}>{c.code} — {c.title}</option>)}
+              <option value="">Selecione um caso…</option>{cases.map(c=><option key={c.id} value={c.test_case_id||c.id}>{c.code} — {c.title}</option>)}
             </select></div>
           <div className="form-group"><label className="form-label">Squad *</label>
             <select className="input" value={form.squad_id} onChange={e=>setForm({...form,squad_id:e.target.value})}>
@@ -144,3 +144,4 @@ export default function Executions() {
     </Layout>
   )
 }
+
