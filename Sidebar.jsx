@@ -17,6 +17,7 @@ const NAV = [
 
 export default function Sidebar() {
   const { user, logout } = useAuth()
+  const goProfile = () => navigate('/profile')
   const navigate = useNavigate()
   const [collapsed, setCollapsed] = useState(false)
 
@@ -47,7 +48,7 @@ export default function Sidebar() {
 
       <div className="sb-footer">
         {!collapsed && (
-          <div className="sb-user">
+          <div className="sb-user" onClick={goProfile} style={{cursor:'pointer',borderRadius:8,padding:4,transition:'background .15s'}} title="Ver perfil">
             <div className="sb-avatar">{user?.name?.[0]?.toUpperCase()}</div>
             <div className="sb-user-info">
               <div className="sb-user-name">{user?.name}</div>
@@ -67,3 +68,4 @@ export default function Sidebar() {
     </aside>
   )
 }
+
