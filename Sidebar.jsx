@@ -13,6 +13,8 @@ const NAV = [
   { to:'/reports',    icon:'◑', label:'Relatórios'     },
   { to:'/jira',       icon:'🔗', label:'Jira'           },  
   { to:'/bugs',   icon:'🐛', label:'Bugs'  },
+  { to:'/business-units',   icon:'🏢', label:'Unidades de Negócio'  },
+
 ]
 
 export default function Sidebar() {

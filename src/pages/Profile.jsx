@@ -129,9 +129,9 @@ export default function Profile() {
     <Layout>
       {/* Header do perfil */}
       <div style={{
-        background: 'var(--bg-card)', border: '1px solid var(--border)',
-        borderRadius: 16, padding: '28px 32px', marginBottom: 18,
-        background: `linear-gradient(135deg, rgba(79,124,255,0.08) 0%, transparent 50%)`,
+        border: '1px solid var(--border)',
+          borderRadius: 16, padding: '28px 32px', marginBottom: 18,
+          background: `linear-gradient(135deg, rgba(79,124,255,0.08) 0%, transparent 50%)`,
         position: 'relative', overflow: 'hidden',
       }}>
         {/* Decoração de fundo */}
@@ -426,3 +426,4 @@ export default function Profile() {
     </Layout>
   )
 }
+
