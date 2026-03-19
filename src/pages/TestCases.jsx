@@ -1,3 +1,4 @@
+import BusinessUnitSelector from '../components/BusinessUnitSelector'
 import React, { useEffect, useState, useCallback } from 'react'
 import { testCases, projects as projApi } from '../services/api'
 import Layout from '../../Layout'
@@ -48,7 +49,7 @@ export default function TestCases() {
   const [showNew, setShowNew] = useState(false)
   const [saving,  setSaving]  = useState(false)
   const [filter,  setFilter]  = useState({ type:'', priority:'', status:'' })
-  const [form,    setForm]    = useState({ title:'', type:'manual', priority:'medium', preconditions:'', automation_status:'not_automated' })
+  const [form,    setForm]    = useState({ title:'', type:'manual', priority:'medium', preconditions:'', automation_status:'not_automated', business_unit_id: '' })
   const [steps,   setSteps]   = useState([{ action:'', expected_result:'' }])
   const [activeTab, setActiveTab] = useState('steps') // 'steps' | 'gherkin'
 
@@ -75,12 +76,12 @@ export default function TestCases() {
   }
 
   const save = async () => {
-    if (!form.title.trim()) return
+    if (!form.title.trim() || !form.business_unit_id) return
     setSaving(true)
     try {
       await testCases.create({ ...form, project_id: projId, steps: steps.filter(s => s.action.trim()) })
       setShowNew(false)
-      setForm({ title:'', type:'manual', priority:'medium', preconditions:'', automation_status:'not_automated' })
+      setForm({ title:'', type:'manual', priority:'medium', preconditions:'', automation_status:'not_automated', business_unit_id: '' })
       setSteps([{ action:'', expected_result:'' }])
       load()
     } finally { setSaving(false) }
@@ -190,6 +191,7 @@ export default function TestCases() {
             <div className="form-group"><label className="form-label">Tipo</label><select className="input" value={form.type} onChange={e=>setForm({...form,type:e.target.value})}>{['manual','automated','exploratory'].map(t=><option key={t}>{t}</option>)}</select></div>
             <div className="form-group"><label className="form-label">Prioridade</label><select className="input" value={form.priority} onChange={e=>setForm({...form,priority:e.target.value})}>{['critical','high','medium','low'].map(p=><option key={p}>{p}</option>)}</select></div>
           </div>
+          <div className="form-group"><label className="form-label">Unidade de Negocio *</label><BusinessUnitSelector value={form.business_unit_id} onChange={val => setForm({...form, business_unit_id: val})} required error={!form.business_unit_id && saving ? "Selecione uma Unidade de Negocio" : ""} /></div>
           <div className="form-group"><label className="form-label">Pré-condições</label><textarea className="input" rows={2} value={form.preconditions} onChange={e=>setForm({...form,preconditions:e.target.value})} /></div>
           <div className="divider" />
           <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:10}}>
@@ -307,3 +309,4 @@ export default function TestCases() {
     </Layout>
   )
 }
+

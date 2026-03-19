@@ -13,6 +13,7 @@ import Callback   from './pages/Callback'
 import Jira from './pages/Jira'
 import Bugs from './pages/Bugs'
 import BusinessUnits from './pages/BusinessUnits'
+import CoverageReport from './pages/CoverageReport'
 import Profile from './pages/Profile'
 
 function Guard({ children }) {
@@ -45,6 +46,7 @@ export default function App() {
           <Route path="/reports"    element={<Guard><Reports /></Guard>} />
           <Route path="*"           element={<Navigate to="/" replace />} />
           <Route path="/profile" element={<Guard><Profile /></Guard>} />
+          <Route path="/coverage" element={<Guard><CoverageReport /></Guard>} />
           <Route path="/business-units" element={<Guard><BusinessUnits /></Guard>} />
           <Route path="/bugs" element={<Guard><Bugs /></Guard>} />
           <Route path="/jira" element={<Guard><Jira /></Guard>} />
@@ -53,5 +55,6 @@ export default function App() {
     </AuthProvider>
   )
 }
+
 
 

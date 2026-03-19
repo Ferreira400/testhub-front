@@ -14,6 +14,7 @@ const NAV = [
   { to:'/jira',       icon:'🔗', label:'Jira'           },  
   { to:'/bugs',   icon:'🐛', label:'Bugs'  },
   { to:'/business-units',   icon:'🏢', label:'Unidades de Negócio'  },
+  { to: '/coverage', icon: '📊', label: 'Cobertura' },
 
 ]
 
