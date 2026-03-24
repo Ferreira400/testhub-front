@@ -20,8 +20,8 @@ const NAV = [
 
 export default function Sidebar() {
   const { user, logout } = useAuth()
-  const goProfile = () => navigate('/profile')
   const navigate = useNavigate()
+  const goProfile = () => navigate('/profile')
   const [collapsed, setCollapsed] = useState(false)
 
   return (
@@ -71,4 +71,5 @@ export default function Sidebar() {
     </aside>
   )
 }
+
 
